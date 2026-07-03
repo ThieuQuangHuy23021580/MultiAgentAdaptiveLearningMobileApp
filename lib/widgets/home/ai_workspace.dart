@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:multi_agent_adaptive_learning_app/widgets/analyzepdf_card.dart';
-import 'package:multi_agent_adaptive_learning_app/widgets/flashcard_card.dart';
-import 'package:multi_agent_adaptive_learning_app/widgets/planner_card.dart';
-import 'package:multi_agent_adaptive_learning_app/widgets/quiz_card.dart';
+import 'package:multi_agent_adaptive_learning_app/widgets/home/analyzepdf_card.dart';
+import 'package:multi_agent_adaptive_learning_app/widgets/home/flashcard_card.dart';
+import 'package:multi_agent_adaptive_learning_app/widgets/home/planner_card.dart';
+import 'package:multi_agent_adaptive_learning_app/widgets/home/quiz_card.dart';
 
 class AIWorkspace extends StatelessWidget {
   const AIWorkspace({super.key});

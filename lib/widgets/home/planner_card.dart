@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:multi_agent_adaptive_learning_app/cores/theme/app_colors.dart';
-import 'package:multi_agent_adaptive_learning_app/widgets/glass_card.dart';
+import 'package:multi_agent_adaptive_learning_app/widgets/home/glass_card.dart';
 
-class QuizCard extends StatelessWidget {
-  const QuizCard({super.key});
+class PlannerCard extends StatelessWidget {
+  const PlannerCard({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,16 +18,20 @@ class QuizCard extends StatelessWidget {
               color: AppColors.surfaceHighest,
               borderRadius: BorderRadius.circular(14),
             ),
-            child: const Icon(Icons.quiz, color: AppColors.primary),
+            child: const Icon(Icons.calendar_month, color: AppColors.primary),
           ),
 
           const Spacer(),
 
-          Text("Generate Quiz", style: Theme.of(context).textTheme.titleMedium),
+          Text("Study Planner", style: Theme.of(context).textTheme.titleMedium),
 
           const SizedBox(height: 8),
 
-          const Text("Test your knowledge"),
+          const Text("Upcoming: Physics Midterm in 4 days"),
+
+          const SizedBox(height: 16),
+
+          FilledButton(onPressed: () {}, child: const Text("View Schedule")),
         ],
       ),
     );
