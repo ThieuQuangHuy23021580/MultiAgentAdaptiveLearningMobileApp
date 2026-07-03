@@ -6,8 +6,6 @@ import 'package:multi_agent_adaptive_learning_app/widgets/bottom_nav.dart';
 import 'package:multi_agent_adaptive_learning_app/widgets/continue_learning_card.dart';
 import 'package:multi_agent_adaptive_learning_app/widgets/daily_focus_card.dart';
 
-import '../../widgets/glass_card.dart';
-
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -26,7 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
       appBar: AppBar(
         title: const Text(
-          "Neo OS",
+          "Adapto AI",
           style: TextStyle(
             color: AppColors.primary,
             fontWeight: FontWeight.bold,
