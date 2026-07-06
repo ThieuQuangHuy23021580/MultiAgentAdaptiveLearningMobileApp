@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:multi_agent_adaptive_learning_app/features/team_session/presentation/widgets/appbar/session_tab_bar.dart';
+import 'package:multi_agent_adaptive_learning_app/features/solo_session/presentations/widgets/appbar/session_app_bar.dart';
+import 'package:multi_agent_adaptive_learning_app/features/solo_session/presentations/widgets/artifacts/artifact_panel.dart';
+import 'package:multi_agent_adaptive_learning_app/features/solo_session/presentations/widgets/discussion/discussion_panel.dart';
+import 'package:multi_agent_adaptive_learning_app/features/solo_session/presentations/widgets/input/floating_input_bar.dart';
+import 'package:multi_agent_adaptive_learning_app/features/solo_session/presentations/widgets/appbar/session_tab_bar.dart';
+import 'package:multi_agent_adaptive_learning_app/features/solo_session/presentations/widgets/knowledge/knowledge_panel.dart';
 
-import '../widgets/appbar/neo_top_bar.dart';
-import '../widgets/artifacts/artifact_panel.dart';
-import '../widgets/discussion/discussion_panel.dart';
-import '../widgets/input/floating_input_bar.dart';
-import '../widgets/knowledge/knowledge_panel.dart';
-
-class TeamSessionScreen extends StatefulWidget {
-  const TeamSessionScreen({super.key});
+class SoloSessionScreen extends StatefulWidget {
+  const SoloSessionScreen({super.key});
 
   @override
-  State<TeamSessionScreen> createState() => _TeamSessionScreenState();
+  State<SoloSessionScreen> createState() => _SoloSessionScreenState();
 }
 
-class _TeamSessionScreenState extends State<TeamSessionScreen> {
+class _SoloSessionScreenState extends State<SoloSessionScreen> {
   final List<String> history = [];
 
   void onSend(String text) {

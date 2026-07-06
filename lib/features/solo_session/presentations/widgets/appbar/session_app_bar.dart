@@ -1,12 +1,14 @@
-import 'dart:math';
 import 'package:flutter/material.dart';
-import '../../../../cores/theme/app_colors.dart';
+import 'package:multi_agent_adaptive_learning_app/cores/theme/app_colors.dart';
 
-class SessionAppBar extends StatefulWidget {
+class SessionAppBar extends StatefulWidget implements PreferredSizeWidget {
   const SessionAppBar({super.key});
 
   @override
   State<SessionAppBar> createState() => _SessionAppBarState();
+
+  @override
+  Size get preferredSize => const Size.fromHeight(80);
 }
 
 class _SessionAppBarState extends State<SessionAppBar>
@@ -58,8 +60,10 @@ class _SessionAppBarState extends State<SessionAppBar>
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(20, 12, 20, 20),
+    final topPadding = MediaQuery.of(context).padding.top;
+    return Container(
+      height: 70 + topPadding,
+      padding: EdgeInsets.only(top: topPadding, left: 20, right: 20, bottom: 0),
       child: Row(
         children: [
           _circleButton(icon: Icons.menu, onPressed: () {}),
