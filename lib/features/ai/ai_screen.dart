@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:multi_agent_adaptive_learning_app/features/ai/widgets/agent_carousel.dart';
 import 'package:multi_agent_adaptive_learning_app/features/ai/widgets/start_session_buttons.dart';
 import 'package:multi_agent_adaptive_learning_app/features/ai/widgets/team_mode_button.dart';
+import 'package:multi_agent_adaptive_learning_app/features/solo_session/screens/solo_session_screen.dart';
+import 'package:multi_agent_adaptive_learning_app/features/team_session/presentation/screens/team_session_screen.dart';
 
 import '../../../../cores/theme/app_colors.dart';
 
@@ -79,7 +81,12 @@ class AIScreen extends StatelessWidget {
                   children: [
                     StartSessionButton(
                       onPressed: () {
-                        // TODO: Handle start session button press
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => const SoloSessionPage(),
+                          ),
+                        );
                       },
                     ),
 
@@ -87,7 +94,12 @@ class AIScreen extends StatelessWidget {
 
                     SwitchTeamModeButton(
                       onPressed: () {
-                        // TODO: Navigate Team Mode
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => const TeamSessionScreen(),
+                          ),
+                        );
                       },
                     ),
                   ],

@@ -34,11 +34,11 @@ class MainNavigation extends StatelessWidget {
             ),
           ),
 
-          Positioned(
-            right: 34,
-            bottom: 110,
-            child: AIFloatingButton(onPressed: () => _onTap(2)),
-          ),
+          // Positioned(
+          //   right: 34,
+          //   bottom: 110,
+          //   child: AIFloatingButton(onPressed: () => _onTap(2)),
+          // ),
         ],
       ),
     );
