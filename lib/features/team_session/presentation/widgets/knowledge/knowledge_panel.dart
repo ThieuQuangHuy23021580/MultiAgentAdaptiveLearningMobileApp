@@ -45,7 +45,7 @@ class KnowledgePanel extends StatelessWidget {
                     fontSize: 12,
                     fontWeight: FontWeight.bold,
                     letterSpacing: 1,
-                    color: Colors.grey,
+                    color: Color.fromARGB(255, 134, 134, 134),
                   ),
                 ),
               ),
@@ -58,15 +58,17 @@ class KnowledgePanel extends StatelessWidget {
             ],
           ),
 
-          const SizedBox(height: 8),
+          const SizedBox(height: 16),
 
-          SizedBox(
-            height: 52,
+          Expanded(
             child: ListView.builder(
-              scrollDirection: Axis.horizontal,
+              scrollDirection: Axis.vertical,
               itemCount: items.length,
               itemBuilder: (_, index) {
-                return KnowledgeChip(item: items[index]);
+                return Container(
+                  margin: const EdgeInsets.only(bottom: 12),
+                  child: KnowledgeChip(item: items[index]),
+                );
               },
             ),
           ),

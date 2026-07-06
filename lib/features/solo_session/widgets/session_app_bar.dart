@@ -62,12 +62,7 @@ class _SessionAppBarState extends State<SessionAppBar>
       padding: const EdgeInsets.fromLTRB(20, 12, 20, 20),
       child: Row(
         children: [
-          _circleButton(
-            icon: Icons.close,
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
+          _circleButton(icon: Icons.menu, onPressed: () {}),
 
           const Spacer(),
           Container(
@@ -88,7 +83,7 @@ class _SessionAppBarState extends State<SessionAppBar>
                         width: 10,
                         height: 10,
                         decoration: const BoxDecoration(
-                          color: AppColors.primary,
+                          color: Color(0xFF22C55E),
                           shape: BoxShape.circle,
                         ),
                       ),
@@ -96,11 +91,12 @@ class _SessionAppBarState extends State<SessionAppBar>
                   },
                 ),
 
-                const SizedBox(width: 10),
+                const SizedBox(width: 14),
 
                 const Text(
-                  "Session Active",
+                  "Solo Mode",
                   style: TextStyle(
+                    fontSize: 16,
                     color: AppColors.primary,
                     fontWeight: FontWeight.w600,
                   ),
@@ -111,7 +107,12 @@ class _SessionAppBarState extends State<SessionAppBar>
 
           const Spacer(),
 
-          _circleButton(icon: Icons.more_horiz, onPressed: () {}),
+          _circleButton(
+            icon: Icons.close,
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
         ],
       ),
     );
@@ -128,7 +129,7 @@ class _PulsePainter extends CustomPainter {
     final radius = 5 + value * 12;
 
     final paint = Paint()
-      ..color = AppColors.primary.withOpacity((1 - value) * .35)
+      ..color = Color(0xFF22C55E).withOpacity((1 - value) * .35)
       ..style = PaintingStyle.stroke
       ..strokeWidth = 2;
 

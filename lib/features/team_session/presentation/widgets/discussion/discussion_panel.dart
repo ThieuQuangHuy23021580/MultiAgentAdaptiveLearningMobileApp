@@ -17,7 +17,7 @@ class DiscussionPanel extends StatelessWidget {
             style: TextStyle(
               fontSize: 13,
               letterSpacing: 1.2,
-              color: Colors.grey,
+              color: Color.fromARGB(255, 134, 134, 134),
               fontWeight: FontWeight.bold,
             ),
           ),

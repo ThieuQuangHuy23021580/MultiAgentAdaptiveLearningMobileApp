@@ -33,7 +33,7 @@ class ArtifactPanel extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 12,
                     fontWeight: FontWeight.bold,
-                    color: Colors.grey,
+                    color: Color.fromARGB(255, 134, 134, 134),
                     letterSpacing: 1,
                   ),
                 ),
@@ -43,7 +43,7 @@ class ArtifactPanel extends StatelessWidget {
             ],
           ),
 
-          const SizedBox(height: 8),
+          const SizedBox(height: 16),
 
           Wrap(
             spacing: 12,

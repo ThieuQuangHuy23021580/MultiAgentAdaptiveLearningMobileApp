@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:multi_agent_adaptive_learning_app/features/team_session/presentation/widgets/appbar/session_tab_bar.dart';
 
 import '../widgets/appbar/neo_top_bar.dart';
 import '../widgets/artifacts/artifact_panel.dart';
@@ -26,50 +27,84 @@ class _TeamSessionScreenState extends State<TeamSessionScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      extendBodyBehindAppBar: true,
+    return DefaultTabController(
+      length: 3,
+      child: Scaffold(
+        extendBodyBehindAppBar: true,
+        backgroundColor: const Color(0xffF4F6FA),
 
-      backgroundColor: const Color(0xffF4F6FA),
-
-      appBar: NeoTopBar(
-        sessionTitle: "Neural Networks Fundamentals",
-
-        onMenuPressed: () {},
-
-        onClosePressed: () {
-          Navigator.pop(context);
-        },
-      ),
-
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(24, 18, 24, 10),
-          child: Column(
+        appBar: SessionAppBar(),
+        body: SafeArea(
+          child: Stack(
             children: [
-              SizedBox(height: 400, child: const DiscussionPanel()),
-
-              const SizedBox(height: 18),
-
-              Expanded(
+              Padding(
+                padding: const EdgeInsets.fromLTRB(24, 0, 24, 10),
                 child: Column(
                   children: [
-                    // KnowledgePanel(),
-                    // SizedBox(height: 8),
-                    ArtifactPanel(),
+                    const _SessionTabBar(),
+
+                    const SizedBox(height: 20),
+
+                    const Expanded(
+                      child: TabBarView(
+                        children: [
+                          DiscussionPanel(),
+                          KnowledgePanel(),
+                          ArtifactPanel(),
+                        ],
+                      ),
+                    ),
+
+                    const SizedBox(height: 170),
                   ],
+                ),
+              ),
+
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: SafeArea(
+                  minimum: const EdgeInsets.only(
+                    left: 18,
+                    right: 18,
+                    bottom: 90,
+                  ),
+                  child: FloatingInputBar(onSend: onSend),
                 ),
               ),
             ],
           ),
         ),
       ),
+    );
+  }
+}
 
-      bottomSheet: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.only(bottom: 90),
-          child: FloatingInputBar(onSend: onSend),
-        ),
+class _SessionTabBar extends StatelessWidget {
+  const _SessionTabBar();
+
+  @override
+  Widget build(BuildContext context) {
+    return TabBar(
+      indicatorColor: const Color(0xff2563EB),
+      indicatorWeight: 3,
+      indicatorSize: TabBarIndicatorSize.label,
+      dividerColor: Colors.grey.withOpacity(.2),
+
+      labelColor: const Color(0xff2563EB),
+      unselectedLabelColor: Colors.grey,
+
+      labelStyle: const TextStyle(fontSize: 17, fontWeight: FontWeight.w700),
+
+      unselectedLabelStyle: const TextStyle(
+        fontSize: 14,
+        fontWeight: FontWeight.w500,
       ),
+
+      tabs: const [
+        Tab(child: SessionTab(title: "Chat", hasNotification: false)),
+        Tab(child: SessionTab(title: "Sources", hasNotification: false)),
+        Tab(child: SessionTab(title: "Artifacts", hasNotification: true)),
+      ],
     );
   }
 }
