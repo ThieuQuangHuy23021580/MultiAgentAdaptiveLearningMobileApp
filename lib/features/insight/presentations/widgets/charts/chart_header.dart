@@ -52,7 +52,7 @@ class _PeriodButton extends StatelessWidget {
       child: Text(
         text,
         style: TextStyle(
-          color: selected ? Colors.white : AppColors.onSurfaceVariant,
+          color: selected ? Colors.white : AppColors.secondary,
           fontWeight: FontWeight.w600,
         ),
       ),

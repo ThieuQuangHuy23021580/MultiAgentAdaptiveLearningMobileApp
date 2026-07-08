@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:multi_agent_adaptive_learning_app/features/insights/models/metric_item.dart';
-import 'package:multi_agent_adaptive_learning_app/features/insights/widgets/metrics/metric_card.dart';
+import 'package:multi_agent_adaptive_learning_app/features/insight/data/models/metric_item.dart';
+import 'package:multi_agent_adaptive_learning_app/features/insight/presentations/widgets/metrics/metric_card.dart';
 
 class MetricsGrid extends StatelessWidget {
   const MetricsGrid({super.key});

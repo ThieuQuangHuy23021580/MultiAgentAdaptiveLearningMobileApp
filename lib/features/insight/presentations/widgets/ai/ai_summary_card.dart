@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:multi_agent_adaptive_learning_app/cores/theme/app_colors.dart';
-import 'package:multi_agent_adaptive_learning_app/features/insights/models/ai_insight.dart';
-import 'package:multi_agent_adaptive_learning_app/features/insights/widgets/ai/recommendation_tile.dart';
+import 'package:multi_agent_adaptive_learning_app/features/insight/data/models/ai_insight.dart';
+import 'package:multi_agent_adaptive_learning_app/features/insight/presentations/widgets/ai/recommendation_tile.dart';
 
 class AiSummaryCard extends StatelessWidget {
   const AiSummaryCard({super.key});
@@ -89,7 +89,7 @@ class AiSummaryCard extends StatelessWidget {
                 insight.summary,
                 style: theme.textTheme.bodyMedium?.copyWith(
                   height: 1.55,
-                  color: AppColors.onSurfaceVariant,
+                  color: AppColors.secondary,
                 ),
               ),
 

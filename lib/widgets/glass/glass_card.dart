@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:ui';
 
-import '../theme/app_colors.dart';
-
 class GlassCard extends StatelessWidget {
   const GlassCard({
     super.key,

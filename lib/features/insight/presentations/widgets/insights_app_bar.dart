@@ -45,14 +45,14 @@ class InsightsAppBar extends StatelessWidget implements PreferredSizeWidget {
                 "Learning Insights",
                 style: theme.textTheme.titleLarge?.copyWith(
                   fontWeight: FontWeight.w700,
-                  color: AppColors.onBackground,
+                  color: AppColors.onSurface,
                 ),
               ),
               const SizedBox(height: 2),
               Text(
                 "Weekly learning analytics",
                 style: theme.textTheme.bodySmall?.copyWith(
-                  color: AppColors.onSurfaceVariant,
+                  color: AppColors.secondary,
                 ),
               ),
             ],

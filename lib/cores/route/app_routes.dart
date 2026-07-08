@@ -2,7 +2,7 @@ import 'package:go_router/go_router.dart';
 import 'package:multi_agent_adaptive_learning_app/features/ai/ai_screen.dart';
 import 'package:multi_agent_adaptive_learning_app/features/home/home_screen.dart';
 import 'package:multi_agent_adaptive_learning_app/features/insight/presentations/screens/insight_screen.dart';
-import 'package:multi_agent_adaptive_learning_app/features/profile/profile_screen.dart';
+import 'package:multi_agent_adaptive_learning_app/features/profile/presentations/screens/profile_screen.dart';
 import 'package:multi_agent_adaptive_learning_app/features/workspace/workspace_screen.dart';
 
 import '../../navigation/main_navigation.dart';

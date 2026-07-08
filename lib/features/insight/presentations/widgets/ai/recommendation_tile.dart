@@ -14,7 +14,7 @@ class RecommendationTile extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 14),
       decoration: BoxDecoration(
-        color: AppColors.surfaceContainerLowest,
+        color: AppColors.surfaceLowest,
         borderRadius: BorderRadius.circular(16),
         border: Border.all(color: AppColors.outline.withOpacity(.08)),
       ),

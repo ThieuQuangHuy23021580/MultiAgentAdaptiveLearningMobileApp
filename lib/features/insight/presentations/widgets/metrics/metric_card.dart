@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:multi_agent_adaptive_learning_app/cores/theme/app_colors.dart';
-import 'package:multi_agent_adaptive_learning_app/features/insights/models/metric_item.dart';
+import 'package:multi_agent_adaptive_learning_app/features/insight/data/models/metric_item.dart';
 
 class MetricCard extends StatelessWidget {
   const MetricCard({super.key, required this.metric});
@@ -37,7 +37,7 @@ class MetricCard extends StatelessWidget {
                 child: Text(
                   metric.title.toUpperCase(),
                   style: theme.textTheme.labelSmall?.copyWith(
-                    color: AppColors.onSurfaceVariant,
+                    color: AppColors.secondary,
                     letterSpacing: 1.2,
                     fontWeight: FontWeight.w600,
                   ),
@@ -72,7 +72,7 @@ class MetricCard extends StatelessWidget {
                     value.toInt().toString(),
                     style: theme.textTheme.headlineMedium?.copyWith(
                       fontWeight: FontWeight.bold,
-                      color: AppColors.onBackground,
+                      color: AppColors.onSurface,
                     ),
                   );
                 },
@@ -85,7 +85,7 @@ class MetricCard extends StatelessWidget {
                   child: Text(
                     metric.suffix!,
                     style: theme.textTheme.bodyMedium?.copyWith(
-                      color: AppColors.onSurfaceVariant,
+                      color: AppColors.secondary,
                     ),
                   ),
                 ),

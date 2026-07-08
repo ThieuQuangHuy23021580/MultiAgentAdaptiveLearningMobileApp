@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:multi_agent_adaptive_learning_app/cores/theme/app_colors.dart';
-import 'package:multi_agent_adaptive_learning_app/features/insights/widgets/charts/chart_header.dart';
-import 'package:multi_agent_adaptive_learning_app/features/insights/widgets/charts/chart_line_painter.dart';
-import 'package:multi_agent_adaptive_learning_app/features/insights/widgets/charts/focus_bar.dart';
+import 'package:multi_agent_adaptive_learning_app/features/insight/presentations/widgets/charts/chart_header.dart';
+import 'package:multi_agent_adaptive_learning_app/features/insight/presentations/widgets/charts/chart_line_painter.dart';
+import 'package:multi_agent_adaptive_learning_app/features/insight/presentations/widgets/charts/focus_bar.dart';
 
 class FocusChartCard extends StatelessWidget {
   const FocusChartCard({super.key});
@@ -70,7 +70,7 @@ class FocusChartCard extends StatelessWidget {
                     child: Center(
                       child: Text(
                         e,
-                        style: TextStyle(color: AppColors.onSurfaceVariant),
+                        style: TextStyle(color: AppColors.secondary),
                       ),
                     ),
                   ),

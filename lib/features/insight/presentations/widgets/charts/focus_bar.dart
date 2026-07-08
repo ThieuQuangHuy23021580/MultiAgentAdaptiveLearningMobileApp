@@ -32,7 +32,7 @@ class FocusBar extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: highlight
                       ? AppColors.primary
-                      : AppColors.surfaceContainerHighest,
+                      : AppColors.surfaceHighest,
                   borderRadius: const BorderRadius.vertical(
                     top: Radius.circular(8),
                   ),
