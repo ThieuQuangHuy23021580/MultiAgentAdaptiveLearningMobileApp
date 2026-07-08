@@ -12,20 +12,20 @@ class QuizCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            width: 48,
-            height: 48,
+            width: 56,
+            height: 56,
             decoration: BoxDecoration(
               color: AppColors.surfaceHighest,
               borderRadius: BorderRadius.circular(14),
             ),
-            child: const Icon(Icons.quiz, color: AppColors.primary),
+            child: const Icon(Icons.quiz, size: 32, color: AppColors.primary),
           ),
 
-          const Spacer(),
+          const SizedBox(height: 10),
 
-          Text("Generate Quiz", style: Theme.of(context).textTheme.titleMedium),
+          Text("Generate Quiz", style: Theme.of(context).textTheme.titleLarge),
 
-          const SizedBox(height: 8),
+          const SizedBox(height: 10),
 
           const Text("Test your knowledge"),
         ],

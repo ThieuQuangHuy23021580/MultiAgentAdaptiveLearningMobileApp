@@ -14,7 +14,7 @@ class DailyFocusCard extends StatelessWidget {
         child: Column(
           children: [
             Text(
-              "Good Morning, Alex",
+              "Good Morning, Vance",
               style: Theme.of(context).textTheme.headlineMedium,
             ),
 

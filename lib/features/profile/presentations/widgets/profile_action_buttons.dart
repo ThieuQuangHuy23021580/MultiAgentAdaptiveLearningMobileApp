@@ -30,7 +30,7 @@ class ProfileActionButtons extends StatelessWidget {
             label: Text(
               "Edit Profile",
               style: theme.textTheme.labelLarge?.copyWith(
-                color: AppColors.primary,
+                color: Colors.white,
                 fontWeight: FontWeight.w600,
               ),
             ),

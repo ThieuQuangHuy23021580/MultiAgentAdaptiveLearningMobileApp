@@ -48,7 +48,7 @@ class MetricsGrid extends StatelessWidget {
             crossAxisCount: crossAxisCount,
             crossAxisSpacing: 20,
             mainAxisSpacing: 20,
-            childAspectRatio: 1.7,
+            childAspectRatio: 2.7,
           ),
           itemBuilder: (_, index) {
             return MetricCard(metric: _metrics[index]);

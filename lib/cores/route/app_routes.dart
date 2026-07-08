@@ -60,7 +60,7 @@ class AppRoutes {
               GoRoute(
                 path: RouteNames.insights,
                 name: RouteNames.insights,
-                builder: (_, __) => const InsightScreen(),
+                builder: (_, __) => const InsightsScreen(),
               ),
             ],
           ),

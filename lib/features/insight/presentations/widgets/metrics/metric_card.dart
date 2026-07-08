@@ -14,7 +14,6 @@ class MetricCard extends StatelessWidget {
     return AnimatedContainer(
       duration: const Duration(milliseconds: 220),
       curve: Curves.easeOut,
-      height: 132,
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         color: AppColors.surface,
@@ -59,7 +58,7 @@ class MetricCard extends StatelessWidget {
             ],
           ),
 
-          const Spacer(),
+          const SizedBox(height: 8),
 
           Row(
             crossAxisAlignment: CrossAxisAlignment.end,

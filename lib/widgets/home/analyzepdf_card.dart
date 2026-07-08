@@ -25,7 +25,7 @@ class AnalyzePDFCard extends StatelessWidget {
             ),
           ),
 
-          const Spacer(),
+          const SizedBox(height: 10),
 
           Text("Analyze PDF", style: Theme.of(context).textTheme.titleLarge),
 

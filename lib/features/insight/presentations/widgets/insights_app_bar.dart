@@ -20,74 +20,25 @@ class InsightsAppBar extends StatelessWidget implements PreferredSizeWidget {
       child: BackdropFilter(
         filter: ImageFilter.blur(sigmaX: 18, sigmaY: 18),
         child: AppBar(
+          backgroundColor: Colors.transparent,
           elevation: 0,
-          centerTitle: false,
-          scrolledUnderElevation: 0,
-          backgroundColor: AppColors.background.withOpacity(.85),
 
-          leadingWidth: 64,
-
-          leading: Padding(
-            padding: const EdgeInsets.only(left: 16),
-            child: IconButton.filledTonal(
-              onPressed: onMenuPressed,
-              icon: const Icon(Icons.menu_rounded),
+          title: const Text(
+            "Neo OS",
+            style: TextStyle(
+              color: AppColors.primary,
+              fontWeight: FontWeight.bold,
             ),
           ),
 
-          titleSpacing: 4,
+          leading: const Icon(Icons.menu),
 
-          title: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                "Learning Insights",
-                style: theme.textTheme.titleLarge?.copyWith(
-                  fontWeight: FontWeight.w700,
-                  color: AppColors.onSurface,
-                ),
-              ),
-              const SizedBox(height: 2),
-              Text(
-                "Weekly learning analytics",
-                style: theme.textTheme.bodySmall?.copyWith(
-                  color: AppColors.secondary,
-                ),
-              ),
-            ],
-          ),
-
-          actions: [
+          actions: const [
             Padding(
-              padding: const EdgeInsets.only(right: 20),
-              child: InkWell(
-                borderRadius: BorderRadius.circular(100),
-                onTap: onAvatarPressed,
-                child: Container(
-                  width: 44,
-                  height: 44,
-                  decoration: BoxDecoration(
-                    color: AppColors.surfaceContainer,
-                    borderRadius: BorderRadius.circular(22),
-                    border: Border.all(
-                      color: AppColors.outline.withOpacity(.15),
-                    ),
-                  ),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(22),
-                    child: Image.network(
-                      "https://i.pravatar.cc/150?img=12",
-                      fit: BoxFit.cover,
-                      errorBuilder: (_, __, ___) {
-                        return Icon(
-                          Icons.person_rounded,
-                          color: AppColors.primary,
-                        );
-                      },
-                    ),
-                  ),
-                ),
+              padding: EdgeInsets.only(right: 16),
+              child: CircleAvatar(
+                radius: 18,
+                backgroundImage: NetworkImage("https://i.pravatar.cc/150"),
               ),
             ),
           ],

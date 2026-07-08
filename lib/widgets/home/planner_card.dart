@@ -12,20 +12,24 @@ class PlannerCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            width: 48,
-            height: 48,
+            width: 56,
+            height: 56,
             decoration: BoxDecoration(
               color: AppColors.surfaceHighest,
               borderRadius: BorderRadius.circular(14),
             ),
-            child: const Icon(Icons.calendar_month, color: AppColors.primary),
+            child: const Icon(
+              Icons.calendar_month,
+              size: 32,
+              color: AppColors.primary,
+            ),
           ),
 
-          const Spacer(),
+          const SizedBox(height: 10),
 
-          Text("Study Planner", style: Theme.of(context).textTheme.titleMedium),
+          Text("Study Planner", style: Theme.of(context).textTheme.titleLarge),
 
-          const SizedBox(height: 8),
+          const SizedBox(height: 10),
 
           const Text("Upcoming: Physics Midterm in 4 days"),
 

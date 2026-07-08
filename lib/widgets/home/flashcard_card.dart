@@ -12,23 +12,23 @@ class FlashCardCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            width: 48,
-            height: 48,
+            width: 56,
+            height: 56,
             decoration: BoxDecoration(
               color: AppColors.surfaceHighest,
               borderRadius: BorderRadius.circular(14),
             ),
-            child: const Icon(Icons.style, color: AppColors.primary),
+            child: const Icon(Icons.style, size: 32, color: AppColors.primary),
           ),
 
-          const Spacer(),
+          const SizedBox(height: 10),
 
           Text(
             "Smart Flashcards",
-            style: Theme.of(context).textTheme.titleMedium,
+            style: Theme.of(context).textTheme.titleLarge,
           ),
 
-          const SizedBox(height: 8),
+          const SizedBox(height: 10),
 
           const Text("15 due for review"),
         ],

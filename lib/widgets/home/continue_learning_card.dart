@@ -40,7 +40,7 @@ class ContinueLearningCard extends StatelessWidget {
     return ClipRRect(
       borderRadius: BorderRadius.circular(18),
       child: AspectRatio(
-        aspectRatio: 3 / 4,
+        aspectRatio: 1,
         child: Image.network(
           "https://images.unsplash.com/photo-1516979187457-637abb4f9353?w=800",
           fit: BoxFit.cover,
