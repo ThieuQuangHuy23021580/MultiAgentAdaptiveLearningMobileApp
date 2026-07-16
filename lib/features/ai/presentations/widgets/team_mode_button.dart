@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../cores/theme/app_colors.dart';
+import '../../../../cores/theme/app_colors.dart';
 
 class SwitchTeamModeButton extends StatelessWidget {
   final VoidCallback onPressed;

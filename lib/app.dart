@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:multi_agent_adaptive_learning_app/cores/theme/app_theme.dart';
 
-import 'features/home/home_screen.dart';
+import 'features/home/presentations/screens/home_screen.dart';
 
 class NeoLearningApp extends StatelessWidget {
   const NeoLearningApp({super.key});

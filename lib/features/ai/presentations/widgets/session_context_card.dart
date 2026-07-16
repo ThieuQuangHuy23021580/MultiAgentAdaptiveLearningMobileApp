@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../../cores/theme/app_colors.dart';
+import '../../../../../cores/theme/app_colors.dart';
 
 class SessionContextCard extends StatelessWidget {
   const SessionContextCard({super.key});

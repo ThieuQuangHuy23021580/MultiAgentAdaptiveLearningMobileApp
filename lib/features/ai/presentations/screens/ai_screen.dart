@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:multi_agent_adaptive_learning_app/features/ai/widgets/agent_carousel.dart';
-import 'package:multi_agent_adaptive_learning_app/features/ai/widgets/start_session_buttons.dart';
-import 'package:multi_agent_adaptive_learning_app/features/ai/widgets/team_mode_button.dart';
+import 'package:multi_agent_adaptive_learning_app/features/ai/presentations/widgets/agent_carousel.dart';
+import 'package:multi_agent_adaptive_learning_app/features/ai/presentations/widgets/start_session_buttons.dart';
+import 'package:multi_agent_adaptive_learning_app/features/ai/presentations/widgets/team_mode_button.dart';
 import 'package:multi_agent_adaptive_learning_app/features/solo_session/presentations/screens/solo_session_screen.dart';
 import 'package:multi_agent_adaptive_learning_app/features/team_session/presentation/screens/team_session_screen.dart';
 
-import '../../../../cores/theme/app_colors.dart';
+import '../../../../../../cores/theme/app_colors.dart';
 
 class AIScreen extends StatelessWidget {
   const AIScreen({super.key});

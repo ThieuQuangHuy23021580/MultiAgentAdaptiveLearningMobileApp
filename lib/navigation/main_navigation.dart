@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:multi_agent_adaptive_learning_app/widgets/home/ai_fab.dart';
-import 'package:multi_agent_adaptive_learning_app/widgets/home/bottom_nav.dart';
+import 'package:multi_agent_adaptive_learning_app/features/home/presentations/widgets/ai_fab.dart';
+import 'package:multi_agent_adaptive_learning_app/features/home/presentations/widgets/bottom_nav.dart';
 
 class MainNavigation extends StatelessWidget {
   final StatefulNavigationShell navigationShell;

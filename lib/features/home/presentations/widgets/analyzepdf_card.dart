@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:multi_agent_adaptive_learning_app/cores/theme/app_colors.dart';
-import 'package:multi_agent_adaptive_learning_app/widgets/home/glass_card.dart';
+import 'package:multi_agent_adaptive_learning_app/features/home/presentations/widgets/glass_card.dart';
 
 class AnalyzePDFCard extends StatelessWidget {
   const AnalyzePDFCard({super.key});

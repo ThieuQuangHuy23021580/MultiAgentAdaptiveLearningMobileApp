@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:multi_agent_adaptive_learning_app/widgets/home/ai_workspace.dart';
-import 'package:multi_agent_adaptive_learning_app/widgets/home/continue_learning_card.dart';
-import 'package:multi_agent_adaptive_learning_app/widgets/home/daily_focus_card.dart';
-import '../../../../cores/theme/app_colors.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+import '../../../../../../cores/theme/app_colors.dart';
+import '../widgets/workspace_grid.dart';
+import '../widgets/workspace_header.dart';
+
+class WorkspaceScreen extends StatelessWidget {
+  const WorkspaceScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -43,17 +43,11 @@ class HomeScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: const [
-              DailyFocusCard(),
+              WorkspaceHeader(),
 
-              SizedBox(height: 24),
+              SizedBox(height: 28),
 
-              ContinueLearningCard(),
-
-              SizedBox(height: 32),
-
-              AIWorkspace(),
-
-              SizedBox(height: 32),
+              WorkspaceGrid(),
             ],
           ),
         ),

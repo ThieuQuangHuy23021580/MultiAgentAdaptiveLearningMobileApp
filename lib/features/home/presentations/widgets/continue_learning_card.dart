@@ -44,6 +44,7 @@ class ContinueLearningCard extends StatelessWidget {
         child: Image.network(
           "https://images.unsplash.com/photo-1516979187457-637abb4f9353?w=800",
           fit: BoxFit.cover,
+          height: double.infinity,
         ),
       ),
     );

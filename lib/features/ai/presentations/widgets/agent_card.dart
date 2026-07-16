@@ -3,7 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:multi_agent_adaptive_learning_app/features/ai/data/agent_model.dart';
 
-import '../../../../cores/theme/app_colors.dart';
+import '../../../../../cores/theme/app_colors.dart';
 
 class AgentCard extends StatelessWidget {
   final AgentModel agent;
