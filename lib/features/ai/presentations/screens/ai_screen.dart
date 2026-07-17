@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:multi_agent_adaptive_learning_app/features/ai/data/agent_model.dart';
 import 'package:multi_agent_adaptive_learning_app/features/ai/presentations/widgets/agent_carousel.dart';
 import 'package:multi_agent_adaptive_learning_app/features/ai/presentations/widgets/start_session_buttons.dart';
 import 'package:multi_agent_adaptive_learning_app/features/ai/presentations/widgets/team_mode_button.dart';
@@ -7,8 +8,15 @@ import 'package:multi_agent_adaptive_learning_app/features/team_session/presenta
 
 import '../../../../../../cores/theme/app_colors.dart';
 
-class AIScreen extends StatelessWidget {
+class AIScreen extends StatefulWidget {
   const AIScreen({super.key});
+
+  @override
+  State<AIScreen> createState() => _AIScreenState();
+}
+
+class _AIScreenState extends State<AIScreen> {
+  AgentModel? _selectedAgent;
 
   @override
   Widget build(BuildContext context) {
@@ -71,7 +79,13 @@ class AIScreen extends StatelessWidget {
               ),
               const SizedBox(height: 32),
 
-              const AgentCarousel(),
+              AgentCarousel(
+                onAgentChanged: (agent) {
+                  setState(() {
+                    _selectedAgent = agent;
+                  });
+                },
+              ),
 
               const SizedBox(height: 12),
 
@@ -84,7 +98,10 @@ class AIScreen extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (_) => const SoloSessionScreen(),
+                            builder: (_) => SoloSessionScreen(
+                              initialAgent: (_selectedAgent?.name ?? "Mentor")
+                                  .toLowerCase(),
+                            ),
                           ),
                         );
                       },

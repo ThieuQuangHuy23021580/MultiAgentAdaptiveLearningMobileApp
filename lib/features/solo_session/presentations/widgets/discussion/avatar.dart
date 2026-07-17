@@ -23,7 +23,21 @@ class AgentAvatar extends StatelessWidget {
           ),
         ],
       ),
-      child: ClipOval(child: Image.network(image, fit: BoxFit.cover)),
+      child: ClipOval(
+        child: Image.network(
+          image,
+          fit: BoxFit.cover,
+          errorBuilder: (_, __, ___) {
+            return Container(
+              color: const Color(0xffE8F0FF),
+              child: const Icon(
+                Icons.smart_toy_rounded,
+                color: Color(0xff2563EB),
+              ),
+            );
+          },
+        ),
+      ),
     );
   }
 }

@@ -514,78 +514,105 @@ Nếu session chưa có message:
 []
 ```
 
-## 12. Debug Khi Flutter Không Nhận Dữ Liệu
+### POST /sessions
 
-### Android Emulator không gọi được API
+Request
 
-Kiểm tra đang dùng:
-
-```dart
-http://10.0.2.2:8000
-```
-
-Không dùng:
-
-```dart
-http://127.0.0.1:8000
-```
-
-Với Android Emulator, `127.0.0.1` là emulator, không phải máy tính đang chạy backend.
-
-### Điện thoại thật không gọi được API
-
-Kiểm tra:
-
-- Điện thoại và máy tính cùng Wi-Fi.
-- Backend chạy bằng `--host 0.0.0.0`.
-- Flutter gọi đúng IP máy tính, ví dụ `http://192.168.1.10:8000`.
-- Firewall Windows không chặn port `8000`.
-
-Lấy IP máy tính bằng PowerShell:
-
-```powershell
-ipconfig
-```
-
-Tìm dòng `IPv4 Address`.
-
-### `/chat/history/session-test-1` trả `[]`
-
-Nguyên nhân thường gặp:
-
-- Chưa gọi thành công `/chat/send`.
-- Gọi sai `sessionId`.
-- Backend đọc nhầm database do chạy từ sai thư mục.
-- Agent/provider lỗi trước khi backend commit message.
-
-### `/chat/send` trả 404
-
-Nếu lỗi:
-
-```json
 {
-  "detail": "Session not found."
+  "user_id": "1",
+  "title": "Học Python",
+  "goal_id": null
 }
-```
 
-Kiểm tra `session_id` có tồn tại trong bảng `sessions`.
+Response
 
-Nếu lỗi:
-
-```json
 {
-  "detail": "Agent not found."
+  "id": "session-1",
+  "user_id": "1",
+  "goal_id": null,
+  "title": "Học Python",
+  "summary": null,
+  "created_at": "2026-07-17T10:00:00+00:00",
+  "updated_at": "2026-07-17T10:00:00+00:00"
 }
-```
+### GET /sessions/{session_id}
 
-Kiểm tra `agent` gửi lên có tồn tại trong bảng `agents.name`.
+Ví dụ
 
-### `/chat/send` trả 500
+GET /sessions/session-1
 
-Nguyên nhân thường gặp:
+Response
 
-- API key/provider AI lỗi.
-- Agent orchestration lỗi.
-- Backend log trong terminal sẽ có traceback chi tiết.
+{
+  "id": "session-1",
+  "user_id": "1",
+  "goal_id": null,
+  "title": "Học Python",
+  "summary": null,
+  "created_at": "...",
+  "updated_at": "..."
+}
+### GET /sessions/user/{user_id}
 
-Khi `/chat/send` lỗi trước khi hoàn tất, dữ liệu có thể chưa được lưu vào bảng `messages`.
+Ví dụ
+
+GET /sessions/user/1
+
+Response
+
+[
+  {
+    "id": "session-1",
+    "user_id": "1",
+    "goal_id": null,
+    "title": "Học Python",
+    "summary": null,
+    "created_at": "...",
+    "updated_at": "..."
+  }
+]
+### PUT /sessions/{session_id}/rename
+
+Request
+
+{
+  "title": "Flutter nâng cao"
+}
+
+Response
+
+{
+  "id": "session-1",
+  "user_id": "1",
+  "goal_id": null,
+  "title": "Flutter nâng cao",
+  "summary": null,
+  "created_at": "...",
+  "updated_at": "..."
+}
+### PATCH /sessions/{session_id}/summary
+
+Request
+
+{
+  "summary": "Đã hoàn thành chương 1"
+}
+
+Response
+
+{
+  "id": "session-1",
+  "user_id": "1",
+  "goal_id": null,
+  "title": "Flutter nâng cao",
+  "summary": "Đã hoàn thành chương 1",
+  "created_at": "...",
+  "updated_at": "..."
+}
+#### DELETE /sessions/{session_id}
+
+Response
+
+{
+  "success": true
+}

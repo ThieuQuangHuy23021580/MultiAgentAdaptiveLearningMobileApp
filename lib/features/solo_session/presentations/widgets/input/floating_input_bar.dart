@@ -8,8 +8,13 @@ import 'send_button.dart';
 
 class FloatingInputBar extends StatefulWidget {
   final Function(String text) onSend;
+  final bool enabled;
 
-  const FloatingInputBar({super.key, required this.onSend});
+  const FloatingInputBar({
+    super.key,
+    required this.onSend,
+    this.enabled = true,
+  });
 
   @override
   State<FloatingInputBar> createState() => _FloatingInputBarState();
@@ -33,7 +38,7 @@ class _FloatingInputBarState extends State<FloatingInputBar> {
   void send() {
     final text = controller.textController.text.trim();
 
-    if (text.isEmpty) return;
+    if (text.isEmpty || !widget.enabled) return;
 
     widget.onSend(text);
 
@@ -92,11 +97,12 @@ class _FloatingInputBarState extends State<FloatingInputBar> {
                   Expanded(
                     child: TextField(
                       controller: controller.textController,
+                      enabled: widget.enabled,
                       keyboardType: TextInputType.multiline,
                       minLines: 1,
                       maxLines: 3,
                       decoration: const InputDecoration(
-                        hintText: "Ask or guide the team...",
+                        hintText: "Ask your AI mentor...",
                         border: InputBorder.none,
                       ),
                     ),
@@ -104,7 +110,10 @@ class _FloatingInputBarState extends State<FloatingInputBar> {
 
                   const SizedBox(width: 12),
 
-                  SendButton(enabled: controller.canSend, onPressed: send),
+                  SendButton(
+                    enabled: controller.canSend && widget.enabled,
+                    onPressed: send,
+                  ),
                 ],
               ),
             ),

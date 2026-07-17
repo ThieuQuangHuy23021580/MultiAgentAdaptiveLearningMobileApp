@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:multi_agent_adaptive_learning_app/cores/theme/app_colors.dart';
 
 class SessionAppBar extends StatefulWidget implements PreferredSizeWidget {
-  const SessionAppBar({super.key});
+  const SessionAppBar({super.key, required this.onMenuPressed});
+
+  final VoidCallback onMenuPressed;
 
   @override
   State<SessionAppBar> createState() => _SessionAppBarState();
@@ -66,7 +68,7 @@ class _SessionAppBarState extends State<SessionAppBar>
       padding: EdgeInsets.only(top: topPadding, left: 20, right: 20, bottom: 0),
       child: Row(
         children: [
-          _circleButton(icon: Icons.menu, onPressed: () {}),
+          _circleButton(icon: Icons.menu, onPressed: widget.onMenuPressed),
 
           const Spacer(),
           Container(
