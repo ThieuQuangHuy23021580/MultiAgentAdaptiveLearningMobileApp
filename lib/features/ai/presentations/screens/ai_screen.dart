@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:multi_agent_adaptive_learning_app/features/ai/data/agent_model.dart';
+import 'package:multi_agent_adaptive_learning_app/features/ai/data/models/agent_model.dart';
 import 'package:multi_agent_adaptive_learning_app/features/ai/presentations/widgets/agent_carousel.dart';
 import 'package:multi_agent_adaptive_learning_app/features/ai/presentations/widgets/start_session_buttons.dart';
 import 'package:multi_agent_adaptive_learning_app/features/ai/presentations/widgets/team_mode_button.dart';
+import 'package:multi_agent_adaptive_learning_app/features/ai/providers/ai_provider.dart';
 import 'package:multi_agent_adaptive_learning_app/features/solo_session/presentations/screens/solo_session_screen.dart';
 import 'package:multi_agent_adaptive_learning_app/features/team_session/presentation/screens/team_session_screen.dart';
+import 'package:provider/provider.dart';
 
 import '../../../../../../cores/theme/app_colors.dart';
 
@@ -16,10 +18,20 @@ class AIScreen extends StatefulWidget {
 }
 
 class _AIScreenState extends State<AIScreen> {
-  AgentModel? _selectedAgent;
+  @override
+  void initState() {
+    super.initState();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      context.read<AIProvider>().initialize();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
+    final provider = context.watch<AIProvider>();
+    final state = provider.state;
+
     return Scaffold(
       backgroundColor: AppColors.background,
 
@@ -80,11 +92,9 @@ class _AIScreenState extends State<AIScreen> {
               const SizedBox(height: 32),
 
               AgentCarousel(
-                onAgentChanged: (agent) {
-                  setState(() {
-                    _selectedAgent = agent;
-                  });
-                },
+                agents: state.agents,
+                selectedAgent: state.selectedAgent,
+                onAgentChanged: provider.selectAgent,
               ),
 
               const SizedBox(height: 12),
