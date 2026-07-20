@@ -91,11 +91,19 @@ class _AIScreenState extends State<AIScreen> {
               ),
               const SizedBox(height: 32),
 
-              AgentCarousel(
-                agents: state.agents,
-                selectedAgent: state.selectedAgent,
-                onAgentChanged: provider.selectAgent,
-              ),
+              if (state.isLoading)
+                const Center(
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(vertical: 40),
+                    child: CircularProgressIndicator(),
+                  ),
+                )
+              else
+                AgentCarousel(
+                  agents: state.agents,
+                  selectedAgent: state.selectedAgent,
+                  onAgentChanged: provider.selectAgent,
+                ),
 
               const SizedBox(height: 12),
 
@@ -109,8 +117,7 @@ class _AIScreenState extends State<AIScreen> {
                           context,
                           MaterialPageRoute(
                             builder: (_) => SoloSessionScreen(
-                              initialAgent: (_selectedAgent?.name ?? "Mentor")
-                                  .toLowerCase(),
+                              initialAgent: state.selectedAgent?.id ?? "mentor",
                             ),
                           ),
                         );

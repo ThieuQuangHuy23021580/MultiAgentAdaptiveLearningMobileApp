@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:multi_agent_adaptive_learning_app/cores/route/app_routes.dart';
+import 'package:multi_agent_adaptive_learning_app/features/ai/providers/ai_provider.dart';
 import 'package:multi_agent_adaptive_learning_app/features/solo_session/data/services/chat_api_service.dart';
 import 'package:multi_agent_adaptive_learning_app/features/solo_session/presentations/controllers/agent_controller.dart';
 import 'package:multi_agent_adaptive_learning_app/features/solo_session/presentations/controllers/chat_controller.dart';
@@ -22,6 +23,10 @@ class NeoApp extends StatelessWidget {
         Provider(
           create: (context) =>
               AgentController(api: context.read<ChatApiService>()),
+        ),
+        ChangeNotifierProvider(
+          create: (context) =>
+              AIProvider(agentController: context.read<AgentController>()),
         ),
         Provider(
           create: (context) =>

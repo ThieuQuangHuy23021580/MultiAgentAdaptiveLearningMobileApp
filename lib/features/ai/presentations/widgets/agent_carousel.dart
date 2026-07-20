@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:multi_agent_adaptive_learning_app/features/ai/data/models/agent_model.dart';
-import 'package:multi_agent_adaptive_learning_app/features/solo_session/data/models/chat_models.dart';
 
 import 'agent_card.dart';
 
@@ -12,11 +11,10 @@ class AgentCarousel extends StatefulWidget {
     required this.onAgentChanged,
   });
 
-  final List<AgentInfo> agents;
+  final List<AgentModel> agents;
+  final AgentModel? selectedAgent;
+  final ValueChanged<AgentModel> onAgentChanged;
 
-  final AgentInfo? selectedAgent;
-
-  final ValueChanged<AgentInfo> onAgentChanged;
   @override
   State<AgentCarousel> createState() => _AgentCarouselState();
 }
@@ -29,34 +27,6 @@ class _AgentCarouselState extends State<AgentCarousel>
   late final Animation<double> floatAnimation;
 
   int currentPage = 0;
-
-  // final List<AgentModel> agents = const [
-  //   AgentModel(
-  //     name: "Mentor",
-  //     role: "Guidance & Strategy",
-  //     description:
-  //         "Provides strategic direction and helps solve complex problems.",
-  //     image:
-  //         "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=900",
-  //     icon: Icons.school,
-  //   ),
-  //   AgentModel(
-  //     name: "Research",
-  //     role: "Data Extraction",
-  //     description: "Scours documents and extracts valuable information.",
-  //     image:
-  //         "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=900",
-  //     icon: Icons.manage_search,
-  //   ),
-  //   AgentModel(
-  //     name: "Planner",
-  //     role: "Plan & Roadmap",
-  //     description: "Breaks down goals into clear and organizes tasks.",
-  //     image:
-  //         "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=900",
-  //     icon: Icons.summarize,
-  //   ),
-  // ];
 
   @override
   void initState() {
@@ -84,6 +54,29 @@ class _AgentCarouselState extends State<AgentCarousel>
   }
 
   @override
+  void didUpdateWidget(covariant AgentCarousel oldWidget) {
+    super.didUpdateWidget(oldWidget);
+
+    if (widget.selectedAgent == null) return;
+
+    final index = widget.agents.indexWhere(
+      (agent) => agent.id == widget.selectedAgent!.id,
+    );
+
+    if (index != -1 && index != currentPage) {
+      currentPage = index;
+
+      if (controller.hasClients) {
+        controller.animateToPage(
+          index,
+          duration: const Duration(milliseconds: 350),
+          curve: Curves.easeOut,
+        );
+      }
+    }
+  }
+
+  @override
   void dispose() {
     controller.dispose();
     floatController.dispose();
@@ -92,6 +85,13 @@ class _AgentCarouselState extends State<AgentCarousel>
 
   @override
   Widget build(BuildContext context) {
+    if (widget.agents.isEmpty) {
+      return const SizedBox(
+        height: 400,
+        child: Center(child: CircularProgressIndicator()),
+      );
+    }
+
     return SizedBox(
       height: 400,
       child: AnimatedBuilder(
@@ -103,17 +103,19 @@ class _AgentCarouselState extends State<AgentCarousel>
 
           return PageView.builder(
             controller: controller,
-            itemCount: agents.length,
+            itemCount: widget.agents.length,
 
             onPageChanged: (index) {
               setState(() {
                 currentPage = index;
               });
 
-              widget.onAgentChanged(agents[index]);
+              widget.onAgentChanged(widget.agents[index]);
             },
 
             itemBuilder: (_, index) {
+              final agent = widget.agents[index];
+
               final distance = page - index;
               final absDistance = distance.abs();
 
@@ -127,7 +129,7 @@ class _AgentCarouselState extends State<AgentCarousel>
 
               final rotateZ = distance * .025;
 
-              final floating = index == currentPage
+              final floating = widget.selectedAgent?.id == agent.id
                   ? floatAnimation.value
                   : 0.0;
 
@@ -143,8 +145,8 @@ class _AgentCarouselState extends State<AgentCarousel>
                       ..rotateZ(rotateZ)
                       ..scale(scale),
                     child: AgentCard(
-                      agent: agents[index],
-                      selected: index == currentPage,
+                      agent: agent,
+                      selected: widget.selectedAgent?.id == agent.id,
                       onTap: () {
                         controller.animateToPage(
                           index,

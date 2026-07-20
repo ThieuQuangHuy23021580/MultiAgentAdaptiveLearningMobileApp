@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AgentModel {
+  final String id;
   final String name;
   final String role;
   final String description;
@@ -8,6 +9,7 @@ class AgentModel {
   final IconData icon;
 
   const AgentModel({
+    required this.id,
     required this.name,
     required this.role,
     required this.description,
